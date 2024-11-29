@@ -28,7 +28,7 @@ const BaseDay = ({
       }`
     : 'col-span-1 row-span-1';
   outterClasses = `${outterClasses} border-solid border rounded-xl relative`;
-  innerClasses = `${innerClasses} text-lg sm:text-2xl w-full absolute left-0 top-0 bottom-0 font flex items-center justify-center text-center font-bold	`;
+  innerClasses = `${innerClasses} text-lg sm:text-2xl w-full absolute left-0 top-0 bottom-0 font flex items-center justify-center text-center font-bold	text-white`;
   if (onClick) {
     outterClasses = `${outterClasses} cursor-pointer`;
   }

@@ -216,7 +216,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
         badge='bottomleft'
       />
       <BaseDay
-        outterClasses='bg-white border-none cursor-pointer'
+        outterClasses='bg- border-none cursor-pointer'
         onClick={checkout}
         day={day}
         size={size}
