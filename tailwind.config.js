@@ -1,8 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
+  safelist: [
+    {
+      pattern: /^col-span-/,
+      variants: ['sm', 'md', 'lg'],
+    },
+    {
+      pattern: /^row-span-/,
+      variants: ['sm', 'md', 'lg'],
+    },
   ],
   theme: {
     container: {
@@ -20,7 +30,5 @@ module.exports = {
     //   darkred: '#792E31',
     // }
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
-}
+  plugins: [require('@tailwindcss/aspect-ratio')],
+};
