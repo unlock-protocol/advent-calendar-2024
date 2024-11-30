@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@privy-io/react-auth": "^1.51.1",
-    "@privy-io/wagmi-connector": "0.1.9",
+    "@privy-io/react-auth": "^1.95.2",
+    "@privy-io/wagmi-connector": "0.1.13",
     "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -19,6 +19,7 @@
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.16",
     "@types/react-google-recaptcha": "^2.1.8",
+    "@unlock-protocol/contracts": "^0.0.32",
     "@unlock-protocol/networks": "^0.0.19",
     "@unlock-protocol/paywall": "^0.6.8",
     "@unlock-protocol/unlock-js": "^0.40.3",

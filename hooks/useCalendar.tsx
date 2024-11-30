@@ -1,6 +1,7 @@
-import { useContractRead, useContractReads } from 'wagmi';
-import { useAuth } from './useAuth';
-import contracts from '../lib/contracts';
+import { PublicLock } from "@unlock-protocol/contracts";
+import { useContractRead, useContractReads } from "wagmi";
+import { useAuth } from "./useAuth";
+import contracts from "../lib/contracts";
 
 export const useCalendar = () => {
   const { wallet } = useAuth();
@@ -13,7 +14,7 @@ export const useCalendar = () => {
   const { data: start, isLoading: isLoadingStart } = useContractRead({
     address: contracts.hook.address as `0x${string}`,
     abi: contracts.hook.ABI,
-    functionName: 'start',
+    functionName: "start",
     chainId: contracts.network,
     args: [],
     cacheTime: 1_000_000_000,
@@ -33,7 +34,7 @@ export const useCalendar = () => {
         return {
           address: contracts.hook.address as `0x${string}`,
           abi: contracts.hook.ABI,
-          functionName: 'lockByDay',
+          functionName: "lockByDay",
           chainId: contracts.network,
           args: [d],
         };
@@ -49,12 +50,11 @@ export const useCalendar = () => {
     isLoading: isLoadingValidKeys,
     refetch,
   } = useContractReads({
-    // @ts-expect-error
     contracts:
       lockAddresses?.map((lockAddresses) => ({
         address: lockAddresses?.result as `0x${string}`,
-        abi: contracts.lock.ABI,
-        functionName: 'getHasValidKey',
+        abi: PublicLock.abi,
+        functionName: "getHasValidKey",
         chainId: contracts.network,
         args: [wallet?.address],
       })) || [],
