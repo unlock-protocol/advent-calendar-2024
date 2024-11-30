@@ -66,13 +66,6 @@ const Modal = ({ network, lock, tokenId, day, setShowModal }: ModalProps) => {
     setContent(days[day - 1]);
   }, [day]);
 
-  const { data: hasWon } = useContractRead({
-    address: contracts.hook.address as `0x${string}`,
-    abi: contracts.hook.ABI,
-    functionName: "haswOnByDay",
-    args: [day, tokenId],
-  });
-
   if (!content) {
     return <></>;
   }
@@ -113,11 +106,6 @@ const Modal = ({ network, lock, tokenId, day, setShowModal }: ModalProps) => {
               </div>
               <h3 className="text-3xl mt-8 font-semibold">{content.title}</h3>
               <div className="my-4 text-lg leading-relaxed">
-                {!!hasWon && (
-                  <p className="my-4 text-lg leading-relaxed bold">
-                    🥳 Congratulations! You are a prize winner today!
-                  </p>
-                )}
                 <ReactMarkdown className="markdown" skipHtml={false}>
                   {content.description!}
                 </ReactMarkdown>
