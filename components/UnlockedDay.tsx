@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import { PublicLock } from "@unlock-protocol/contracts";
 import useClipboard from "react-use-clipboard";
 import BaseDay from "./BaseDay";
 import days from "../lib/days";
