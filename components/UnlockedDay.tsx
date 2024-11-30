@@ -6,7 +6,6 @@ import BaseDay from './BaseDay';
 import days from '../lib/days';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
-import snow from '../lib/snow';
 import { BsTwitter } from 'react-icons/bs';
 import { SlMagnifier } from 'react-icons/sl';
 import { SiOpensea } from 'react-icons/si';
@@ -182,12 +181,6 @@ const UnlockedDay = ({
 }: UnlockedDayProps) => {
   const [showModal, setShowModal] = useState(justUnlocked);
 
-  useEffect(() => {
-    if (justUnlocked) {
-      snow.start();
-    }
-  }, [justUnlocked]);
-
   const { data: tokenId } = useContractRead({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
@@ -220,10 +213,7 @@ const UnlockedDay = ({
           tokenId={tokenId as string}
           user={user}
           day={day}
-          setShowModal={(showModal) => {
-            snow.stop();
-            setShowModal(showModal);
-          }}
+          setShowModal={setShowModal}
         />
       ) : null}
     </>
