@@ -1,9 +1,9 @@
 import { AppConfig } from "./AppConfig";
 
 const contracts = {
-  network: 84532,
+  network: 8453,
   hook: {
-    address: "0x909f61fd0BCb8C5e094478f79C212DB68CF1D7EA",
+    address: "0x4266b16A605cF3360a074f9FfE24319C5Df636e8",
     ABI: [
       {
         inputs: [{ internalType: "uint256", name: "day", type: "uint256" }],

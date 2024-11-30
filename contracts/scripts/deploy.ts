@@ -13,7 +13,7 @@ async function main() {
   if (Number(chainId) === 8453) {
     const [locks, hook] = await deploy(
       unlock,
-      "0x9cE8D6B62b8980Bf8579CFe5f1AF1cC7576aEC20",
+      "0x4266b16A605cF3360a074f9FfE24319C5Df636e8",
       new Date("2024-12-01 12:00:00").getTime() / 1000
     );
   } else if (Number(chainId) === 84532) {
