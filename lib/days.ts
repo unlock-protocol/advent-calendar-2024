@@ -5,217 +5,228 @@
 const days = [
   {
     // Day 1
-    title: '🍾 Welcome to the 2024 Unlock Protocol Advent Calendar!',
-    description: `Every day, open a new door, claim a new NFT, and learn something new! You can open today’s door if you opened yesterday’s door. (No peeking ahead!) Best of all, some days will have special gifts for you from Unlock and our partners and community!
-See you tomorrow!`,
-    link: '',
-    image: '/images/gift-present-share-tag-text-1120x630a.png',
-    youtube: '',
+    title: '🌟Stella Achenbach',
+    role: 'Lead Steward at Unlock DAO',
+    description: `Stella’s journey with Unlock started by bringing **ALANAmagazine** onchain, blending **creativity and decentralized tools** to make it happen. When the DAO needed structure, she stepped up, redefining the Mayor role into **Lead Steward** and fostering a thriving community.
+
+Always keeping creativity at the forefront, Stella feels passionate about decentralized governance, an **omni-accessible Metaverse** and reimagining beauty in the digital space. 
+`,
+    link: 'https://www.bonfire.xyz/stellaachenbach',
+    image: '/images/nft/1.png',
   },
   {
     // Day 2
-    title: 'Year in Review',
-    description: `Some days we’ll share great stuff from the the Unlock community’s amazing 2024 accomplishments and adventures. For example — did you know there’s an entire showcase of events, subscriptions, memberships, certifications and more that have been built using Unlock Protocol? It’s true!`,
-    link: 'https://showcase.unlock-protocol.com',
-    image: '/images/showcase-share-3.png',
-    youtube: '',
+    title: '🌸 Cecilia Contreras (Ceci Sakura)',
+    role: 'Event Organizer and ReFi Advocate at Unlock DAO',
+    description: `Ceci discovered Unlock while simplifying event ticketing and tracking impact on-chain for **Ethereum Bolivia community**, finding freedom and transparency in Web3 tools. From hosting **Let’s Grow Live** to connecting communities with **La Mudanza**, she’s helped bridge Unlock’s tools with the community.
+
+Passionate about ReFi and Web3’s power to drive environmental and social change, Ceci is inspired by nature’s beauty—**sakura flowers, sunflowers, and honey bees**—as she links creativity and purpose in every collaboration.`,
+    link: 'https://x.com/Ceci_Sakura007',
+    image: '/images/nft/2.png',
   },
   {
     // Day 3
-    title: 'Subscription Tokens with Unlock Protocol',
-    description:
-      'One of the common questions we get asked is how do memberships and subscription tokens work with Unlock Protocol? Here’s a deep dive into how it works!',
-    link: 'https://twitter.com/UnlockProtocol/status/1720459335875350599',
-    image: '/images/subscription-share-3.jpeg',
-    youtube: '',
+    title: '☀️ Kara Howard',
+    role: 'Community Empowerment Advocate at Unlock DAO',
+    description: `Kara’s collaboration with Unlock began through workshops with **SI<3>**, sparking a partnership that brought community education to life. Through these efforts, she’s strengthened bonds, built friendships, and continues to write her story of impact and innovation.
+
+Passionate about supporting underrepresented communities, Kara uses Unlock to help them **activate their potential** and streamline their programming. Her energy is as vibrant as **sunlight, spicy vegan wings, and dynamic NFTs**—a true force for empowerment in Web3.`,
+    link: 'https://www.linkedin.com/in/decentralizing',
+    image: '/images/nft/3.png',
   },
   {
     // Day 4
-    title: 'Let’s get this party started!',
-    description: `Hey! A little something-something for you today — we’re dropping some USDC to a number of lucky folks today! If you're chosen, we’ll automatically drop it into the wallet you used to get today's NFT. Enjoy! Please see the [official rules](https://unlockprotocol.notion.site/Unlock-Contests-and-Sweepstakes-Standard-Terms-and-Conditions-2023-289658e982794a1f8198d28fe7ec134b?pvs=4) for country and other eligibility.`,
-    link: '',
-    image: '/images/picsou-scrooge.gif',
-    youtube: '',
+    title: '🔮 Lana Dingwall',
+    role: 'Unlock Protocol Ambassador and Regenerative Crypto Advocate',
+    description: `Lana’s journey with Unlock began at **ETHNewYork 2022**, where she first built with the protocol during a hackathon. A year later, she came full circle, becoming an ambassador and helping hackers integrate Unlock into their projects. From **PizzaDAO** to **The GreenPill Network**, Lana has brought Unlock to diverse communities, shaping its impact through initiatives like Retro Grant rounds and active delegation.
+
+Passionate about using blockchain for **regeneration and a better world**, Lana’s adventurous spirit is reflected in her **Jeep Wrangler, 5-panel hat, and tarot cards**.`,
+    link: 'https://warpcast.com/lanadingwall',
+    image: '/images/nft/4.png',
   },
   {
     // Day 5
-    title: 'Easy-Peasy Event Tickets and Registration',
-    description:
-      'Did you know you can create event tickets and landing pages for your conference, event, or meetup in under five minutes with Unlock Protocol? Set up your event landing page, sell or airdrop tickets as NFTs and via email, and perform check-in with a dedicated QR code. Easy.',
-    link: 'https://events.unlock-protocol.com',
-    image: '/images/event-share-3.png',
-    youtube: '',
+    title: '🌲 David Ehrlichman',
+    role: 'Coordination Innovator and Unlock Protocol Enthusiast',
+    description: `David’s passion for helping **living systems flourish** led him to champion better coordination through Web3 tools. As part of the team at **Hats**, he played a key role in developing the **Hats + Unlock integration**, enabling seamless subscription and membership roles for onchain organizations.
+
+Whether guiding communities with a **facilitation chime, drumming up creativity on a drum set**, or embodying resilience like an **evergreen tree**, David’s contributions inspire thriving ecosystems in Unlock and beyond.`,
+    link: 'https://x.com/davehrlichman',
+    image: '/images/nft/5.png',
   },
   {
     // Day 6
-    title: 'We ❤️ our frens at Web3 Academy',
-    description:
-      'Our frens at Web3 Academy, the #1 trusted resource to make sense of an onchain world in constant transformation, integrated Unlock memberships this year. They are the go-to resource for weekly onchain analysis, industry insights & market analysis to help you build and invest successfully in web3. Today, some lucky Locksmiths will pick up a Web3 Academy PRO Membership ($180 value) or a Web3 Investing Masterclass ($250 value)!',
-    link: 'https://paragraph.xyz/@web3academy',
-    image: '',
-    youtube: 'https://www.youtube.com/embed/-fE64lkvUmg',
+    title: '🚲 Fries Jnr',
+    role: 'Contributor at Unlock DAO',
+    description: `Fries Jnr joined Unlock with a mission: to **improve the pipeline** and keep things moving forward. Though the journey is ongoing, their dedication and unique flair have made a mark within the community.
+
+With a love for the **skeleton hat lil noun**, Fries brings a creative edge to everything they do, shining bright like a **old tooth, cruising on a bicycle**, and always rocking a **blue hat**.`,
+    link: 'https://warpcast.com/pip',
+    image: '/images/nft/6.png',
   },
   {
     // Day 7
-    title: 'Unleash Your Inner Degen',
-    description:
-      "🎉 Holiday goodness from the folks at Decrypt! Decrypt is gifting 10 Shark Membership Passes, each worth $99.99, to 10 lucky Locksmiths. Winners can use the passes (built with Unlock Protocol, naturally) to plunge into a world of exclusive access and thrilling experiences. Dive into members-only poker tournaments, fantasy football, basketball leagues, and unique competitions to showcase your degen prowess. It's the ultimate holiday activity to get your adrenaline pumping! 🦈 Plus, don't miss out: 20 lucky participants will also win access to the “Mastering NFT Trading” Course at Degen U, valued at $9.99 each. Embrace the holiday spirit with a chance to learn, compete, and win! 🌟",
-    link: 'https://decrypt.co/1000x',
-    image: '/images/decrypt-1000x-share.png',
-    youtube: '',
+    title: '🌐 Julien Genestoux',
+    role: 'Creator of Unlock Protocol',
+    description: `Julien’s passion for **building a better web** led him to **create Unlock Protocol**, paving the way for a more open and decentralized internet. His vision continues to inspire the DAO and the countless projects powered by Unlock.
+
+Always on the move—whether with his **laptop, running shoes**, or signature **sunglasses**—Julien embodies innovation, energy, and the drive to make the web a better place for everyone.`,
+    link: 'https://ouvre-boite.com',
+    image: '/images/nft/7.png',
   },
   {
     // Day 8
-    title: 'Sharing is Caring',
-    description:
-      'Today’s present is a collab between **you** and the Locksmith community! Today, anyone who shares a link to the advent calendar and includes their unique referral code will receive an airdrop of $1 USDC **every** time someone else also mints today’s gift via their referral link! **The URLs in the links below are unique to you and contain your unique referrer code.** Sharing is caring!',
-    link: 'https://unlock-protocol.com/blog/referral-fees',
-    image: '',
-    youtube: 'https://www.youtube.com/embed/aSjSEy8mdxI',
+    title: '🏔️ Mexi',
+    role: 'Unlock DAO Prime Member and Community Builder',
+    description: `Mexi’s passion for **empowering communities** through blockchain shines in every project. From using Unlock Protocol to sell tickets for **Ethereum México 2023** to creating over **50 locks** for events, Mexi has seamlessly blended accessibility and innovation.
+
+With **BandaWeb3**, a podcast on X Spaces, Mexi shares insights from Web3 builders while offering free collectibles for token-gated content. Now, with **BandaWeb3 Prime**, Mexi is unlocking exclusive tools and content for members, driving collaboration and governance.
+
+Mexi’s adventurous spirit—reflected in a **mountain, rock climber**, and **surfboard**— fuels a mission to build stronger, more innovative communities with Unlock.`,
+    link: 'https://x.com/meximalist',
+    image: '/images/nft/8.png',
   },
   {
     // Day 9
-    title: 'LabWeek23 Rocked',
-    description:
-      'LabWeek23, organized by Protocol Labs alongside Devconnect Istanbul, was a decentralized, week-long series where the Protocol Labs Network and its community came together. LabWeek hosted over 1,500 builders in a variety of events where attendees shared progress on projects and research, exchanged knowledge, and forged deeper connections through research-focused seminars, engineering workshops, summits, unconferences, and social gatherings. LabWeek’s ticketing membership infrastructure was powered by Unlock Protocol.',
-    link: 'https://23.labweek.io/registration-ticketing',
-    image: '/images/labweek-large-share.png',
-    youtube: '',
+    title: '🔥 Sohobiit',
+    role: 'Contributor at Unlock DAO',
+    description: `Sohobiit believes in using **Unlock Protocol** to create **exclusive, sustainable experiences** that foster real connections and shape a more decentralized world. Drawn to the potential of **tokenized ticketing**, they joined Unlock DAO and discovered a **goldmine**: a supportive team dedicated to helping members thrive and succeed.
+
+Fueled by a **fire** for innovation, guided by a **heart** for community, and inspired by the luck of a **clover**, Sohobiit continues to build and contribute to Unlock’s transformative vision.`,
+    link: 'https://x.com/sohobiit',
+    image: '/images/nft/9.png',
   },
   {
     // Day 10
-    title: 'Nym Shipyard Set Sail',
-    description:
-      'Nym Shipyard is a free, six-week privacy bootcamp, designed to train the next generation of activists, builders and operators to create the private internet in the age of AI. It is an intensive Web3 training program featuring weekly masterclasses with the Nym core team and special guests including Chelsea Manning, Harry Halpin, Claudia Diaz and others featuring multiple tracks, hands-on workshops, and mentorship. Over 7,000 memberships and completion NFTs were earned by Shipyard participants in 2023.',
-    link: 'https://nymtech.net/learn/shipyard',
-    image: '/images/nym-large-share.png',
-    youtube: '',
+    title: '🔥 Danny Thomx',
+    role: 'Unlock DAO Contributor',
+    description: `Danny is driven by a passion for **gamified systems** that enhance human coordination and create prototypes for **universal basic income**. A referral from a friend introduced him to Unlock Protocol, leading to an integration project with **scaffold-eth**. By the time the task was complete, Danny had fallen in love with both the **tech** and the **community.
+
+Now an active contributor to the DAO, Danny brings the elements of **water, fire**, and **metal** to his work—fueling innovation, adaptability, and strength in building systems that truly empower people.`,
+    link: 'https://x.com/dannithomx',
+    image: '/images/nft/10.png',
   },
   {
     // Day 11
-    title: 'Darkblock and Unlock Protocol Teamed Up',
-    description:
-      'In 2023, Darkblock integrated Unlock Protocol to give creators more flexibility in how they deliver exclusive content to their fans. With this integration, creators can now harness the combined power of Unlock and Darkblock to sell recurring subscriptions to their content and enable other time-based access to onchain content. Want to build your own subscription-based magazine, label, or onchain Patreon? This is how you would do it.',
-    link: 'https://unlock-protocol.com/guides/how-to-create-subscription-content-with-unlock-protocol-and-darkblock/',
-    image: '',
-    youtube: 'https://www.youtube.com/embed/iPeOxC7xVUw',
+    title: '📘 David-Moderator',
+    role: 'Longtime Unlock DAO Member',
+    description: `David’s passion for **technology, blockchain, and cybersecurity** is matched only by his love for the **world of motors**. As one of the earliest members of Unlock DAO, he was captivated by the protocol’s innovative potential and the visionary leadership of Julien.
+
+From the start, David has been a key contributor, blending the precision of a **computer**, the creativity of a **book**, and the power of an **engine** to help drive the DAO forward. His dedication continues to shape the future of Unlock.`,
+    link: 'https://x.com/_Cryptosmonitor',
+    image: '/images/nft/11.png',
   },
   {
     // Day 12
-    title: 'Certified Awesome',
-    description:
-      'Did you know: Professional certifications like CDAA (Certified Digital Asset Advisor) and industry leaders like Web3 Academy deliver their on-chain certifications and credentials using Unlock Protocol. It’s very cool, and it just works.',
-    link: 'https://unlock-protocol.com/blog/cdaa-unlock-case-study',
-    image: '/images/cdaa-share.png',
-    youtube: '',
+    title: '🏄‍♂️ PostArchitekt',
+    role: 'Creator & Innovator in Web3',
+    description: `Driven by a passion for **AI-driven narratives** and creating engaging **educational experiences in Web3**, PostArchitekt stumbled upon Unlock Protocol while exploring Web3 tools for his **edutainment project, Surfing on Entropy.
+
+He found a vibrant and passionate community within the Unlock DAO—a space where creators and developers collaborate to directly engage with their audience. Inspired and energized by the possibilities, he dove right into the DAO, experimenting with **Quantum Entanglement, Brian Eno’s influence**, and a **surfboard** to craft groundbreaking experiences in the Web3 space.`,
+    link: 'https://warpcast.com/postarchitekt',
+    image: '/images/nft/12.png',
   },
   {
     // Day 13
-    title: 'Protect your Digital Assets with Webacy Pro',
-    description:
-      'Webacy helps you navigate the Web3 world with services that help you stay safe. Assess your risk with Risk Score. Monitor your wallets with Wallet Watch. Act on threats with the Panic Button and Backup Wallet. Webacy’s non-custodial, fully no-access services provide you with the tools you need to stay safe on the blockchain. Today, **Webacy is gifting 10 NFT passes (powered by Unlock Protocol!) to lucky Locksmiths!** These passes grant access to Webacy’s cutting edge blockchain safety services (and might even have a special impact on your ranking on the Webacy Leaderboard 👀).',
-    link: 'https://webacy.com/',
-    image: '',
-    youtube: 'https://www.youtube.com/embed/ZGdpVHOMaD0',
+    title: '🎧 mash7',
+    role: 'Web3 Enthusiast & Contributor',
+    description: `Passionate about **giving power back to everyone through Web3**, mash7 discovered Unlock while searching for a unique, welcoming community to contribute to. He quickly found his home in the **Unlock DAO**, where the mission to empower individuals resonated with his own values.
+
+From the moment he joined, mash7 embraced the opportunity to collaborate, innovate, and be part of something transformative in the world of Web3. His **headphones, Winrar**, and **light bulb** are symbols of the creativity, problem-solving, and bright ideas he brings to the community.`,
+    link: 'http://discord.com',
+    image: '/images/nft/13.png',
   },
   {
     // Day 14
-    title: 'Connect Your Community with Kazm-Powered Gamified Membership',
-    description:
-      "Kazm enables next level community engagement & brand loyalty. Easily launch white-label memberships to reward activations across EVERY touchpoint - with no-code, and no limits. **Kazm is giving away three Starter Plan accounts on Kazm's SAAS, white-label, no-code platform with 3 free months:** Launch a membership, club, or gamified community experience for up to 1000 Registered participants ($600 value for each!). Membership programs including Lazy Lions, Surf Junkie Club and others use Kazm + Unlock Protocol for their memberships!",
-    link: 'https://join.kazm.com/',
-    image: '/images/kazmgif-1280.gif',
-    youtube: '',
+    title: '💻 txbi',
+    role: 'Creator & Visionary',
+    description: `**Passionate about providing leverage for visionaries** to turn their goals and dreams into reality, txbi joined **Unlock DAO** early this year, drawn to how **Unlock Protocol** empowers creators to fully own and control their content. The DAO, filled with **passionate creators and developers** who are both visionaries and executors, resonated deeply with his own dedication to making things happen.
+
+With a **MacBook Pro, coffee mug**, and **octopus** as his symbols, txbi brings creativity, focus, and adaptability to the table in everything he does.`,
+    link: 'https://github.com/0xTxbi',
+    image: '/images/nft/14.png',
   },
   {
     // Day 15
-    title: 'Boost Your Loyalty Game with beyondClub + Unlock!',
-    description:
-      "Ready to rock the loyalty world? Meet beyondClub, which created a fun NFT loyalty platform powered by Unlock Protocol! It's a breeze to create buzzing fan communities and cool, exclusive experiences. We love how beyondClub makes loyalty fun!",
-    link: 'https://beyondclub.xyz',
-    image: '/images/beyondclub-share.png',
-    youtube: '',
+    title: '📓 jhonastic',
+    role: 'Contributor & Advocate',
+    description: `**Passionate about a fair world and decentralized economy for everyone**, jhonastic’s journey with **Unlock DAO** began almost by chance, fitting perfectly into the role he holds today. He’s grateful for the opportunity to connect with **Stella** and the amazing people in the DAO, sharing a vision of a more equitable world.
+
+With a **blank notebook, an HDD**, and **a fraction of a valuable token** representing his journey, jhonastic values new beginnings, data-driven ideas, and the potential of blockchain to reshape the future.`,
+    link: 'https://www.linkedin.com/in/jonathan-asti/',
+    image: '/images/nft/15.png',
   },
   {
     // Day 16
-    title: 'Forta-fied!',
-    description:
-      'The Forta Scam Detector is a monthly subscription service data feed that provides real-time intelligence about EOAs, contracts and URLs involved in a variety of Web3 scams. It is jointly maintained by the Forta Foundation, Nethermind, Blocksec, ChainPatrol and members of the Forta developer community. Unlock is thrilled to be powering the subscription infrastructure for this important set of services!',
-    link: 'https://app.forta.network/scam-detector',
-    image: '/images/forta-advent.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/16.png',
   },
   {
     // Day 17
-    title: 'Own The Narrative with Coinage (Literally)',
-    description:
-      'Coinage, the first community-owned Web3 media outlet governed by NFT holders, created the first-ever Onchain Scavenger Hunt in partnership with Unlock Protocol this year. Players had a chance to win 5 ETH and other prizes along the way. Every day for 12 days, players competed to solve a daily clue, and mint a free digital trophy (NFT) to celebrate their Web3 knowledge. At the end of 12 days, players who unlocked all 12 words were eligible to automatically unlock the grand prize. It was a ridiculous amount of retro fun! More importantly, Coinage does some of the best reporting in the game, period.',
-    link: 'https://coinage.media',
-    image: '/images/coinage-scavenger.gif',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/17.png',
   },
   {
     // Day 18
-    title: 'The ALANA Project',
-    description:
-      "The ALANA Project empowers creators and believes everyone should to be able to learn, co-create, and build. Everyone has the ability to create, and access to the right tools and resources is vital to unlocking the full potential of one's creativity. The ALANA Project has six branches including a magazine, a boutique, AI, adventures, and more. Unlock is a proud partner of The ALANA Project.",
-    link: 'https://www.the-alana-project.xyz/',
-    image: '',
-    youtube: 'https://www.youtube.com/embed/bg86iZAAzQw',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/18.png',
   },
   {
     // Day 19
-    title: 'Enter 2024 in style with Privy 😎',
-    description:
-      "2023 has been a year of crypto glow-ups! We've seen a wave of exciting consumer products for mainstream users, with engaging app experiences, seamless onboarding, and smooth wallet UX. Celebrate the year by claiming a Privy shirt, available to the first 25 people to fill out the **Learn more** form. (The Unlock team loves working with Privy, and the advent calendar uses Privy extensively!)",
-    link: 'https://50fzxaracbi.typeform.com/to/Bm1sYwKS',
-    image: '/images/privy-shirt.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/19.png',
   },
   {
     // Day 20
-    title: "20 on 20: Enter to win free tickets to CoinDesk's Consensus 2024",
-    description:
-      'For Day 20 of Unlock\'s Advent Calendar, Consensus is giving away 20 Pro Passes to randomly selected winners who complete the form linked below by Dec. 21 at 11:59 p.m EST. Please click the "Learn More" button and enter the info below for a chance to win a pair of pro passes to Consensus 2024 in Austin, Texas on May 29-31. All fields are required to be considered a valid entry. Good luck!',
-    link: 'https://airtable.com/appBFFx7vdL4ng7c0/pagKMudjgHwUHn8Hh/form',
-    image: '/images/consensus-share.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/20.png',
   },
   {
     // Day 21
-    title: 'A Big Thanks to Base!',
-    description:
-      'The Unlock Protocol community wanted to give a special shout-out today to the amazing team over at Base for being a part of the advent calendar fun this year! We so appreciate their support and wanted to share our congrats with them on an amazing 2023. We look forward to collaborating more with them in 2024!',
-    link: 'https://base.org',
-    image: '/images/base-share.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/21.png',
   },
   {
     // Day 22
-    title: 'A New Kind of Christmas Card 🦉💳',
-    description:
-      'The team at Gnosis Pay created a Christmas card to connect our web3 and IRL selves together! To get into the festive spirit, Santa 🎅 is delivering Gnosis Cards, worth EUR 30+ each, to three Locksmiths, so you can spend some crypto in the real world in 2024!',
-    link: 'https://gnosispay.com/app/signup',
-    image: '/images/gnosis-share.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/22.png',
   },
   {
     // Day 23
-    title: 'Tomorrow is the big day!',
-    description:
-      'Tomorrow’s going to be a big day, with one 1000 USDC gift for one lucky Locksmith. But it’s the last day of the calendar, and we’re going to miss connecting with you every day. We’d love to stay in touch! If you’d like to as well, please [sign up for our newsletter](https://newsletter.unlock-protocol.com) — and see you tomorrow!',
-    link: 'https://newsletter.unlock-protocol.com',
-    image: '/images/santa-newsletter.png',
-    youtube: '',
+    title: '',
+    role: '',
+    description: ``,
+    link: '',
+    image: '/images/nft/23.png',
   },
   {
     // Day 24
-    title: 'Happy Holidays from Unlock Protocol!',
-    description:
-      'Today is the big day — one lucky winner will be drawn from today’s participants and win 1000 USDC to brighten up their holidays! Thank you again for being a part of the Unlock Protocol Locksmith community in 2023, and we are wishing you a safe, healthy, and prosperous 2024. Day 24 opens at 12:00:00 Eastern Time (Noon) on December 24, and closes at 11:59:59 Eastern Time (just before Noon) on December 25th, when the drawing will be held.',
+    title: '',
+    role: '',
+    description: ``,
     link: '',
-    image: '/images/day24-share.png',
-    youtube: '',
+    image: '/images/nft/24.png',
   },
 ];
 
