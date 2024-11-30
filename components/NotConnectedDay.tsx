@@ -7,12 +7,13 @@ interface NotConnectedDayProps {
   size: DaySize;
 }
 
-const NotConnectedDay = ({ day }: NotConnectedDayProps) => {
+const NotConnectedDay = ({ day, size }: NotConnectedDayProps) => {
   const { login } = useAuth();
 
   return (
     <BaseDay
       day={day}
+      size={size}
       outterClasses='bg-white border-none cursor-pointer'
       onClick={() => login()}
     />

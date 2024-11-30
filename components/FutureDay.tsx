@@ -8,7 +8,11 @@ interface FutureDayProps {
 
 const FutureDay = ({ day, size }: FutureDayProps) => {
   return (
-    <BaseDay outterClasses='bg-[#494E53] border-none' day={day} size={size} />
+    <BaseDay
+      outterClasses='bg-tertiary border-none text-cream'
+      day={day}
+      size={size}
+    />
   );
 };
 

@@ -23,12 +23,14 @@ const BaseDay = ({
     outterClasses = '';
   }
   const gridClass = size
-    ? `col-span-${size.default.cols} row-span-${size.default.rows} ${
+    ? `col-span-${size.default.cols} row-span-${size.default.rows} order-${
+        size.default.order
+      } ${
         size.sm ? `sm:col-span-${size.sm.cols} sm:row-span-${size.sm.rows}` : ''
       }`
     : 'col-span-1 row-span-1';
   outterClasses = `${outterClasses} border-solid border rounded-xl relative`;
-  innerClasses = `${innerClasses} text-lg sm:text-2xl w-full absolute left-0 top-0 bottom-0 font flex items-center justify-center text-center font-bold	text-white`;
+  innerClasses = `${innerClasses} text-lg sm:text-2xl w-full absolute left-0 top-0 bottom-0 font flex items-center justify-center text-center font-bold`;
   if (onClick) {
     outterClasses = `${outterClasses} cursor-pointer`;
   }

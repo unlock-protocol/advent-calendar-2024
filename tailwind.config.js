@@ -13,22 +13,42 @@ module.exports = {
       pattern: /^row-span-/,
       variants: ['sm', 'md', 'lg'],
     },
+    {
+      pattern: /^order-/,
+      variants: ['sm', 'md', 'lg'],
+    },
   ],
   theme: {
     container: {
       center: true,
       padding: '2rem',
     },
-    // colors: {
-    //   transparent: 'transparent',
-    //   red: '#B9464B',
-    //   green: '#3C5B56',
-    //   yellow: '#F3EBAC',
-    //   white: '#ffffff',
-    //   black: '#000000',
-    //   darkyellow: '#ACA571',
-    //   darkred: '#792E31',
-    // }
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      primary: '#6A46F5',
+      secondary: '#FF6771',
+      tertiary: '#535353',
+      cream: '#FFF7E8',
+      white: '#ffffff',
+      black: '#000000',
+    },
+    extend: {
+      order: {
+        13: '13',
+        14: '14',
+        15: '15',
+        16: '16',
+        17: '17',
+        18: '18',
+        19: '19',
+        20: '20',
+        21: '21',
+        22: '22',
+        23: '23',
+        24: '24',
+      },
+    },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],
 };
