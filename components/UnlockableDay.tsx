@@ -31,8 +31,8 @@ interface MintableProps {
 }
 
 const explorer = (network: number, hash: string) => {
-  if (network === 5) {
-    return `https://goerli.etherscan.io/tx/${hash}`;
+  if (network === 84532) {
+    return `https://sepolia.basescan.org/tx/${hash}`;
   }
   return `https://basescan.org/tx/${hash}`;
 };
@@ -176,7 +176,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
 
         const hash = response.data.transactionHash;
 
-        const explorerLink = explorer(network, hash);
+        const explorerLink = explorer(network, hash!);
         toast.success(
           <p>
             Your{" "}
@@ -191,7 +191,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
           </p>,
           { duration: 10000 }
         );
-        onMinting(hash);
+        onMinting(hash!);
       }
     } catch (error) {
       toast.error(
