@@ -1,19 +1,19 @@
-import { useContractRead, useContractReads } from "wagmi";
-import Day from "./Day";
-import contracts from "../lib/contracts";
-import { useAuth } from "../hooks/useAuth";
-import { useCalendar } from "../hooks/useCalendar";
-import FutureDay from "./FutureDay";
-import { daysSizes } from "../layout/daySizes";
+import { useContractRead, useContractReads } from 'wagmi';
+import Day from './Day';
+import contracts from '../lib/contracts';
+import { useAuth } from '../hooks/useAuth';
+import { useCalendar } from '../hooks/useCalendar';
+import FutureDay from './FutureDay';
+import { daysSizes } from '../layout/daySizes';
 
 export const Calendar = () => {
   const { days, lockAddresses, validKeys, isLoading, start, refetch } =
     useCalendar();
   return (
-    <div className="grid grid-cols-4 md:grid-cols-10 lg:grid-cols-12 auto-rows-[72px] gap-2 sm:gap-4">
+    <div className='grid grid-cols-4 md:grid-cols-10 lg:grid-cols-12 auto-rows-[72px] gap-2 sm:gap-4'>
       {days.map((day, index) => {
         if (!lockAddresses || !lockAddresses![day - 1]) {
-          return <FutureDay key={index} day={day} size={daysSizes[day]} />;
+          return <FutureDay key={day} day={day} size={daysSizes[day]} />;
         }
         const hasMembership = validKeys
           ? validKeys[index]?.result || false
