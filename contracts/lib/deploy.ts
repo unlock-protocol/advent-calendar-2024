@@ -131,6 +131,18 @@ const deploy = async (unlock: any, hookAddress?: string, start?: number) => {
         )
       ).wait();
     }
+    // Tommy 0x9e119A9683F1Ea3EEA328B7aB7231f5AA44195d3
+    if (
+      !(await locks[i].isLockManager(
+        "0x9e119A9683F1Ea3EEA328B7aB7231f5AA44195d3"
+      ))
+    ) {
+      await (
+        await locks[i].addLockManager(
+          "0x9e119A9683F1Ea3EEA328B7aB7231f5AA44195d3"
+        )
+      ).wait();
+    }
   }
 
   return [locks, hook];
