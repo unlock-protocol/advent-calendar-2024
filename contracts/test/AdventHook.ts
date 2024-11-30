@@ -1,31 +1,29 @@
-import { expect } from "chai";
+const { expect } = require("chai");
 import deploy from "../lib/deploy";
-import ERC20 from "./ERC20.abi";
 const { network, unlock, ethers } = require("hardhat");
 
-const expirationDuration = ethers.constants.MaxUint256;
-const maxNumberOfKeys = ethers.constants.MaxUint256;
-const keyPrice = 0;
-
 const moveToTime = async (futureDate: Date) => {
-  // console.log(
-  //   `Before, we are now ${new Date(
-  //     (await getCurrentTime()) * 1000
-  //   ).toUTCString()}, moving to ${futureDate.toUTCString()}`
-  // );
-  await network.provider.request({
-    method: "evm_increaseTime",
-    params: [Math.ceil(futureDate.getTime() / 1000 - (await getCurrentTime()))],
-  });
-  await network.provider.request({
-    method: "evm_mine",
-    params: [],
-  });
+  const now = new Date((await getCurrentTime()) * 1000);
   console.log(
-    `After, we are now ${new Date(
-      (await getCurrentTime()) * 1000
-    ).toUTCString()}`
+    `Before, we are now ${now.toUTCString()}, moving to ${futureDate.toUTCString()}`
   );
+  if (now.getTime() < futureDate.getTime()) {
+    await network.provider.request({
+      method: "evm_increaseTime",
+      params: [
+        Math.ceil(futureDate.getTime() / 1000 - (await getCurrentTime())),
+      ],
+    });
+    await network.provider.request({
+      method: "evm_mine",
+      params: [],
+    });
+    console.log(
+      `After, we are now ${new Date(
+        (await getCurrentTime()) * 1000
+      ).toUTCString()}`
+    );
+  }
 };
 
 const getCurrentTime = async () => {
@@ -59,7 +57,7 @@ describe("AdventHook", function () {
     await expect(
       locks[0]
         .connect(user)
-        .purchase([0], [user.address], [user.address], [user.address], [[]])
+        .purchase([0], [user.address], [user.address], [user.address], ["0x"])
     ).to.reverted;
     console.log(`Failed first day as expected because it is too early`);
 
@@ -73,7 +71,7 @@ describe("AdventHook", function () {
     await expect(
       locks[0]
         .connect(user)
-        .purchase([0], [user.address], [user.address], [user.address], [[]])
+        .purchase([0], [user.address], [user.address], [user.address], ["0x"])
     ).not.to.reverted;
     console.log(`Succeeded first day as expected`);
 
@@ -82,7 +80,7 @@ describe("AdventHook", function () {
     await expect(
       locks[2]
         .connect(user)
-        .purchase([0], [user.address], [user.address], [user.address], [[]])
+        .purchase([0], [user.address], [user.address], [user.address], ["0x"])
     ).to.reverted;
     console.log(
       `Failed 3rd day as expected because we have not purchased day 2 first`
@@ -98,7 +96,7 @@ describe("AdventHook", function () {
       await expect(
         locks[i - 1]
           .connect(user)
-          .purchase([0], [user.address], [user.address], [user.address], [[]])
+          .purchase([0], [user.address], [user.address], [user.address], ["0x"])
       ).not.to.reverted;
       currentDay += 1;
     }

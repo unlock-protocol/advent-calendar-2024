@@ -10,7 +10,6 @@ async function main() {
   const { chainId } = await ethers.provider.getNetwork();
   console.log(`Deploying from ${await user.getAddress()} on ${chainId}`);
 
-  console.log(chainId);
   if (Number(chainId) === 8453) {
     const [locks, hook] = await deploy(
       unlock,

@@ -69,7 +69,7 @@ contract AdventHookNext {
 
         if (winnerIndices[day] == 0) {
             if (winners[day].length < 1) {
-                winners[day][0] = recipient;
+                winners[day] = [recipient];
             } else {
                 // add to winners array, at a random position!
                 uint random = uint(

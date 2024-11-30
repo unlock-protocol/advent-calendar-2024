@@ -2,6 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@unlock-protocol/hardhat-plugin";
 import "@openzeppelin/hardhat-upgrades";
 import "@nomicfoundation/hardhat-verify";
+import "@nomicfoundation/hardhat-chai-matchers";
 import { networks } from "@unlock-protocol/networks";
 
 const unlockNetworks = Object.keys(networks).reduce((prev, current) => {
