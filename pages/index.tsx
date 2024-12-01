@@ -52,7 +52,7 @@ export default function Home() {
         <meta property='eth:nft:chain' content='base' />
         <link rel='shortcut icon' href='/favicon.ico' type='image/png' />
       </Head>
-      <body className='bg-[#141b26]'>
+      <div className='bg-[#141b26]'>
         <Snowfall
           style={{
             position: 'fixed',
@@ -63,7 +63,7 @@ export default function Home() {
         <div className='flex flex-col'>
           <div className=''>
             <Header />
-            <main className='container relative flex-1 flex flex-col gap-4'>
+            <main className='container mx-auto px-4 lg:px-16 xl:px-40 relative flex-1 flex flex-col gap-4'>
               <div className='text-white'>
                 <h1 className={`${hurricane.className} text-8xl text-white`}>
                   Your Advent Calendar 2024
@@ -110,7 +110,7 @@ export default function Home() {
             </footer>
           </div>
         </div>
-      </body>
+      </div>
 
       <Analytics />
     </>
