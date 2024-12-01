@@ -35,7 +35,7 @@ const UnlockedDay = ({
   return (
     <>
       <BaseDay
-        outterClasses={`border-[#75797E] text-white cursor-pointer flex items-center justify-center`}
+        outterClasses={`border-[#75797E] bg-tertiary text-white cursor-pointer flex items-center justify-center`}
         day={day}
         size={size}
         hideDay={true}
@@ -47,8 +47,8 @@ const UnlockedDay = ({
           src={`/images/nft/${day}.png`}
           alt={`NFT image for Day ${day}`}
           fill
-          className='rounded-xl object-contain'
-        ></Image>
+          className='rounded-xl object-cover'
+        />
       </BaseDay>
       {showModal ? (
         <Modal

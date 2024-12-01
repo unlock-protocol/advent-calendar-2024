@@ -19,6 +19,9 @@ module.exports = {
     },
   ],
   theme: {
+    fontFamily: {
+      sans: ['IBM Plex Sans', 'sans-serif'],
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -34,6 +37,9 @@ module.exports = {
       black: '#000000',
     },
     extend: {
+      fontFamily: {
+        hurricane: ['Hurricane', 'serif'],
+      },
       order: {
         13: '13',
         14: '14',
