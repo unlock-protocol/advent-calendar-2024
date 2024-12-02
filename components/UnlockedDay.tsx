@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from 'react';
-import { PublicLock } from '@unlock-protocol/contracts';
-import BaseDay from './BaseDay';
-import { useContractRead } from 'wagmi';
-import Image from 'next/image';
-import { DaySize } from '../layout/daySizes';
-import Modal from './Modal';
+import { useState } from "react";
+import { PublicLock } from "@unlock-protocol/contracts";
+import BaseDay from "./BaseDay";
+import { useContractRead } from "wagmi";
+import Image from "next/image";
+import { DaySize } from "../layout/daySizes";
+import Modal from "./Modal";
 interface UnlockedDayProps {
   day: number;
   user: any;
@@ -28,8 +28,9 @@ const UnlockedDay = ({
   const { data: tokenId } = useContractRead({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
-    functionName: 'tokenOfOwnerByIndex',
+    functionName: "tokenOfOwnerByIndex",
     args: [user, 0],
+    chainId: network,
   });
 
   return (
@@ -47,7 +48,7 @@ const UnlockedDay = ({
           src={`/images/nft/${day}.png`}
           alt={`NFT image for Day ${day}`}
           fill
-          className='rounded-xl object-cover'
+          className="rounded-xl object-cover"
         />
       </BaseDay>
       {showModal ? (
