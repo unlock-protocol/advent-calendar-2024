@@ -92,4 +92,11 @@ contract AdventHookNext {
             }
         }
     }
+
+    function setStart(uint _start) external {
+        if (!IPublicLockV13(lockByDay[1]).isLockManager(msg.sender)) {
+            revert NOT_ALLOWED();
+        }
+        start = _start;
+    }
 }
