@@ -6,21 +6,21 @@ import BaseDay from './BaseDay';
 import FutureDay from './FutureDay';
 import {
   useBalance,
-  useContractRead,
-  useContractWrite,
-  usePrepareContractWrite,
+  useReadContract,
+  useSimulateContract,
+  useWriteContract,
 } from 'wagmi';
 import contracts from '../lib/contracts';
-import { useContractReads } from 'wagmi';
 import { useEffect, useRef, useState } from 'react';
 import { LocksmithService } from '@unlock-protocol/unlock-js';
-import { useWaitForTransaction } from 'wagmi';
+import { useWaitForTransactionReceipt } from 'wagmi';
 import { AppConfig } from '../lib/AppConfig';
 import ReCaptcha from 'react-google-recaptcha';
 import { useAuth } from '../hooks/useAuth';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { DaySize } from '../layout/daySizes';
+import { useWallets } from '@privy-io/react-auth';
 
 interface MintableProps {
   day: number;
@@ -39,57 +39,59 @@ const explorer = (network: number, hash: string) => {
 
 const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { wallets } = useWallets();
   const { wallet, canClaim } = useAuth();
   const recaptchaRef = useRef<any>();
   const { query } = useRouter();
 
-  const { data: referrer } = useContractRead({
+  const { data: referrerAddress } = useReadContract({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
     functionName: 'ownerOf',
     chainId: contracts.network,
-    args: [query?.r],
-    enabled: !!(lock && query?.d === day.toString() && query?.r),
+    args: [query?.r!],
+    query: {
+      enabled: !!(lock && query?.d === day.toString() && query?.r)
+    }
   });
 
   const { data: userBalance } = useBalance({
-    address: wallet?.address as `0x${string}`,
+    address: wallet as `0x${string}`,
   });
 
   // Switch network if required
-  useEffect(() => {
-    if (wallet && wallet.chainId !== `eip155:${network}}`) {
-      wallet.switchChain(network);
-    }
-  }, [wallet, network]);
+  // useEffect(() => {
+  //   if (wallet && wallet.chainId !== `eip155:${network}}`) {
+  //     wallet.switchChain(network);
+  //   }
+  // }, [wallet, network]);
 
-  const { config } = usePrepareContractWrite({
+  const referrer = referrerAddress as `0x${string}` || '0x0000000000000000000000000000000000000000';
+  const { data } = useSimulateContract({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
     functionName: 'purchase',
     chainId: network,
-    account: wallet?.address as `0x${string}`,
+    account: wallet as `0x${string}`,
     args: [
       [0],
-      [wallet?.address],
-      [referrer || '0x0000000000000000000000000000000000000000'],
-      [wallet?.address],
+      [wallet!],
+      [referrer],
+      [wallet!],
       [''],
     ],
     gas: BigInt(700_000), // This is high, just in case they win!
   });
 
-  const { writeAsync } = useContractWrite({
-    ...config,
-  });
+  const { writeContract, data: hash } = useWriteContract();
 
   const checkout = async () => {
     try {
       if (userBalance && userBalance?.value > 0.0000001) {
         setLoading(true);
         try {
-          const { hash } = await writeAsync!();
-          const explorerLink = explorer(network, hash);
+          await writeContract!(data!.request);
+          const explorerLink = explorer(network, hash!);
           toast.success(
             <p>
               Your{' '}
@@ -105,7 +107,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
             { duration: 10000 }
           );
 
-          onMinting(hash);
+          onMinting(hash!);
         } catch (e) {
           console.error(e);
           toast.error(
@@ -119,14 +121,14 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
         const siwe = LocksmithService.createSiweMessage({
           domain: window.location.host,
           uri: window.location.origin,
-          address: wallet?.address,
+          address: wallet!,
           chainId: network,
           version: '1',
           statement:
             "I'd like to mint an NFT from the Unlock Protocol Advent Calendar!",
         });
         const message = siwe.prepareMessage();
-        const ethersProvider = await wallet?.getEthersProvider();
+        const ethersProvider = await wallets[0]?.getEthersProvider();
         if (!ethersProvider) {
           console.error('No ethers provider');
           return;
@@ -160,13 +162,13 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
           lock,
           captcha,
           {
-            recipient: wallet?.address,
+            recipient: wallet!,
             data: '',
             referrer:
               (referrer as string) ||
               '0x0000000000000000000000000000000000000000',
           },
-          wallet?.address,
+          wallet!,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -204,7 +206,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
     setLoading(false);
   };
 
-  if (loading || !writeAsync) {
+  if (loading || !writeContract) {
     return <LoadingDay day={day} size={size} />;
   }
 
@@ -251,14 +253,17 @@ const UnlockableDay = ({
 }: UnlockableDayProps) => {
   const [hash, setHash] = useState('');
 
-  const { data } = useWaitForTransaction({
+  const { data, status } = useWaitForTransactionReceipt({
     chainId: contracts.network,
     hash: hash as `0x${string}`,
-    enabled: !!hash,
-    onSuccess() {
-      refetch();
+    query: {
+      enabled: !!hash,
     },
   });
+
+  useEffect(() => {
+    refetch();
+  }, [status]);
 
   const justUnlocked = data?.status == 'success';
   const isLoading = hash && !data;

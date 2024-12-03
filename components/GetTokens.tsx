@@ -16,14 +16,13 @@ const GetTokensButton = () => {
   // If it is 0 on Base but > 0 on
   const { user, wallet } = useAuth();
   const { data: userBalanceOnMainnet } = useBalance({
-    address: wallet?.address as `0x${string}`,
+    address: wallet as `0x${string}`,
     chainId: 1,
   });
   const { data: userBalanceOnNetwork } = useBalance({
-    address: wallet?.address as `0x${string}`,
+    address: wallet as `0x${string}`,
     chainId: contracts.network,
   });
-  const isPrivyUser = !user || user.wallet?.walletClientType === "privy";
 
   const minAmountRequired = BigInt(400_000_000_000_000); // about 1$
   if (
