@@ -123,7 +123,6 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
                   "It looks like the transaction to mint today's NFT could not be submitted! Please try again!",
               }
             );
-            console.log({ hash });
             onMinting(hash!);
           } catch (e) {
             console.error(e);
