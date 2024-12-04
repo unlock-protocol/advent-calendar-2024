@@ -10,19 +10,22 @@ export const DEFAULT_SEO: DefaultSeoProps = {
     locale: "en_US",
     url: AppConfig.siteUrl,
     site_name: AppConfig.name,
-    images: [ {
-      url: `${AppConfig.siteUrl}/images/unlock-protocol-advent-calendar.png`,
-      width: 1200,
-      height: 630,
-      alt: 'Unlock Protocol Advent Calendar',
-      type: 'image/png',
-    },
-    ]
+    images: [
+      {
+        url: `${AppConfig.siteUrl}/images/unlock-protocol-advent-calendar.png`,
+        width: 1200,
+        height: 630,
+        alt: "Unlock Protocol Advent Calendar",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     handle: "UnlockProtocol",
     site: "UnlockProtocol",
     cardType: "summary_large_image",
+    // @ts-expect-error
+    image: `${AppConfig.siteUrl}/images/unlock-protocol-advent-calendar.png`,
   },
 };
 
