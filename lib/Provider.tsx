@@ -1,5 +1,6 @@
 import { PrivyProvider } from "@privy-io/react-auth";
 import { WagmiProvider } from "@privy-io/wagmi";
+import { base, baseSepolia } from "viem/chains";
 
 import { ReactNode } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -18,6 +19,8 @@ export const Provider = ({ children }: { children?: ReactNode }) => {
     <PrivyProvider
       appId="clpjz90qo00k2if0fl2coy0ns"
       config={{
+        defaultChain: base,
+        supportedChains: [base, baseSepolia],
         embeddedWallets: {
           createOnLogin: "users-without-wallets", // defaults to 'off'
           noPromptOnSignature: true, // defaults to false
