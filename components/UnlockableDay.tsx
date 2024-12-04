@@ -1,9 +1,9 @@
-import { PublicLock } from '@unlock-protocol/contracts';
-import { toast } from 'react-hot-toast';
-import UnlockedDay from './UnlockedDay';
-import LoadingDay from './LoadingDay';
-import BaseDay from './BaseDay';
-import FutureDay from './FutureDay';
+import { PublicLock } from "@unlock-protocol/contracts";
+import { toast } from "react-hot-toast";
+import UnlockedDay from "./UnlockedDay";
+import LoadingDay from "./LoadingDay";
+import BaseDay from "./BaseDay";
+import FutureDay from "./FutureDay";
 import {
   useBalance,
   useChainId,
@@ -11,18 +11,18 @@ import {
   useSimulateContract,
   useSwitchChain,
   useWriteContract,
-} from 'wagmi';
-import contracts from '../lib/contracts';
-import { useEffect, useRef, useState } from 'react';
-import { LocksmithService } from '@unlock-protocol/unlock-js';
-import { useWaitForTransactionReceipt } from 'wagmi';
-import { AppConfig } from '../lib/AppConfig';
-import ReCaptcha from 'react-google-recaptcha';
-import { useAuth } from '../hooks/useAuth';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { DaySize } from '../layout/daySizes';
-import { useWallets } from '@privy-io/react-auth';
+} from "wagmi";
+import contracts from "../lib/contracts";
+import { useEffect, useRef, useState } from "react";
+import { LocksmithService } from "@unlock-protocol/unlock-js";
+import { useWaitForTransactionReceipt } from "wagmi";
+import { AppConfig } from "../lib/AppConfig";
+import ReCaptcha from "react-google-recaptcha";
+import { useAuth } from "../hooks/useAuth";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { DaySize } from "../layout/daySizes";
+import { useWallets } from "@privy-io/react-auth";
 
 interface MintableProps {
   day: number;
@@ -51,48 +51,42 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
   const { data: referrerAddress } = useReadContract({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
-    functionName: 'ownerOf',
+    functionName: "ownerOf",
     chainId: contracts.network,
     args: [query?.r!],
     query: {
-      enabled: !!(lock && query?.d === day.toString() && query?.r)
-    }
+      enabled: !!(lock && query?.d === day.toString() && query?.r),
+    },
   });
 
   const { data: userBalance } = useBalance({
     address: wallet as `0x${string}`,
   });
 
-  const referrer = referrerAddress as `0x${string}` || '0x0000000000000000000000000000000000000000';
+  const referrer =
+    (referrerAddress as `0x${string}`) ||
+    "0x0000000000000000000000000000000000000000";
   const { data } = useSimulateContract({
     address: lock as `0x${string}`,
     abi: PublicLock.abi,
-    functionName: 'purchase',
+    functionName: "purchase",
     chainId: network,
     account: wallet as `0x${string}`,
-    args: [
-      [0],
-      [wallet!],
-      [referrer],
-      [wallet!],
-      [''],
-    ],
+    args: [[0], [wallet!], [referrer], [wallet!], [""]],
     gas: BigInt(700_000), // This is high, just in case they win!
   });
 
-
   const { writeContractAsync, data: hash } = useWriteContract();
 
-  const { switchChain } = useSwitchChain()
-  const chainId = useChainId()
+  const { switchChain } = useSwitchChain();
+  const chainId = useChainId();
 
   useEffect(() => {
-    if(resumeCheckout) {
-      setResumeCheckout(false)
-      checkout()
+    if (resumeCheckout) {
+      setResumeCheckout(false);
+      checkout();
     }
-  },[chainId, resumeCheckout])
-
+  }, [chainId, resumeCheckout]);
 
   const checkout = async () => {
     try {
@@ -105,29 +99,33 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
           });
         } else {
           try {
-            const hash = await writeContractAsync!(data!.request);
-            const explorerLink = explorer(network, hash!)
-            toast.success(
-              <p>
-              Your{' '}
-              <Link
-                className='inline underline'
-                target='_blank'
-                href={explorerLink}
-              >
-                NFT is being minted
-              </Link>
-              ! Please stand by!              
-              </p>,
-              { duration: 10000 }
+            const hash = await toast.promise(
+              writeContractAsync!(data!.request),
+              {
+                loading: "Minting your NFT, please check your wallet!",
+                success: (hash: string) => {
+                  const explorerLink = explorer(network, hash!);
+                  return (
+                    <p>
+                      Your{" "}
+                      <Link
+                        className="inline underline"
+                        target="_blank"
+                        href={explorerLink}
+                      >
+                        NFT is being minted
+                      </Link>
+                      ! Please stand by!
+                    </p>
+                  );
+                },
+                error:
+                  "It looks like the transaction to mint today's NFT could not be submitted! Please try again!",
+              }
             );
-  
             onMinting(hash!);
           } catch (e) {
             console.error(e);
-            toast.error(
-              "It looks like the transaction to mint today's NFT could not be submitted! Please try again!"
-            );
           }
         }
       } else {
@@ -139,14 +137,14 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
           uri: window.location.origin,
           address: wallet!,
           chainId: network,
-          version: '1',
+          version: "1",
           statement:
             "I'd like to mint an NFT from the Unlock Protocol Advent Calendar!",
         });
         const message = siwe.prepareMessage();
         const ethersProvider = await wallets[0]?.getEthersProvider();
         if (!ethersProvider) {
-          console.error('No ethers provider');
+          console.error("No ethers provider");
           return;
         }
         const ethersSigner = await ethersProvider.getSigner();
@@ -163,7 +161,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
         setLoading(true);
         if (!canClaim) {
           // Block spammers who can't claim here...
-          toast.success('Your NFT is being minted! Please stand by!', {
+          toast.success("Your NFT is being minted! Please stand by!", {
             duration: 10000,
           });
           return false;
@@ -179,10 +177,10 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
           captcha,
           {
             recipient: wallet!,
-            data: '',
+            data: "",
             referrer:
               (referrer as string) ||
-              '0x0000000000000000000000000000000000000000',
+              "0x0000000000000000000000000000000000000000",
           },
           wallet!,
           {
@@ -197,10 +195,10 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
         const explorerLink = explorer(network, hash!);
         toast.success(
           <p>
-            Your{' '}
+            Your{" "}
             <Link
-              className='inline underline'
-              target='_blank'
+              className="inline underline"
+              target="_blank"
               href={explorerLink}
             >
               NFT is being minted
@@ -213,7 +211,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
       }
     } catch (error) {
       toast.error(
-        'There was an error minting your NFT. Please refresh the page and try again!'
+        "There was an error minting your NFT. Please refresh the page and try again!"
       );
       setLoading(false);
       console.error(error);
@@ -228,16 +226,16 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
 
   return (
     <>
-      <div style={{ position: 'absolute', left: '-9999px' }}>
+      <div style={{ position: "absolute", left: "-9999px" }}>
         <ReCaptcha
           ref={recaptchaRef}
           sitekey={AppConfig.recaptchaKey}
-          size='invisible'
-          badge='bottomleft'
+          size="invisible"
+          badge="bottomleft"
         />
       </div>
       <BaseDay
-        outterClasses='bg-cream text-primary border-none cursor-pointer'
+        outterClasses="bg-cream text-primary border-none cursor-pointer"
         onClick={checkout}
         day={day}
         size={size}
@@ -267,7 +265,7 @@ const UnlockableDay = ({
   hasPreviousDayMembership,
   network,
 }: UnlockableDayProps) => {
-  const [hash, setHash] = useState('');
+  const [hash, setHash] = useState("");
 
   const { data, status } = useWaitForTransactionReceipt({
     chainId: contracts.network,
@@ -281,7 +279,7 @@ const UnlockableDay = ({
     refetch();
   }, [status]);
 
-  const justUnlocked = data?.status == 'success';
+  const justUnlocked = data?.status == "success";
   const isLoading = hash && !data;
 
   if (isLoading) {
