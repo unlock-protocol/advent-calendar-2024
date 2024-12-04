@@ -31,17 +31,12 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content={`${AppConfig.siteUrl}/images/advent-2023.png`}
+          content={`${AppConfig.siteUrl}/iimages/unlock-protocol-advent-calendar.png`}
         />
         <meta property="og:url" content={AppConfig.siteUrl} />
         <meta property="og:type" content="website" />
 
         <meta property="eth:nft:collection" content={AppConfig.name} />
-        {/* Day1 contract address */}
-        <meta
-          property="eth:nft:contract_address"
-          content="0x31291b6bccc00e4c10c769746671448498fea2d7"
-        />
         <meta
           property="eth:nft:creator_address"
           content="unlock-protocol.eth"

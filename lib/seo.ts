@@ -4,12 +4,20 @@ import { AppConfig } from "./AppConfig";
 export const DEFAULT_SEO: DefaultSeoProps = {
   title: AppConfig.name,
   description: AppConfig.description,
+  canonical: AppConfig.siteUrl,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: AppConfig.siteUrl,
     site_name: AppConfig.name,
-    images: [],
+    images: [ {
+      url: `${AppConfig.siteUrl}/images/unlock-protocol-advent-calendar.png`,
+      width: 1200,
+      height: 630,
+      alt: 'Unlock Protocol Advent Calendar',
+      type: 'image/png',
+    },
+    ]
   },
   twitter: {
     handle: "UnlockProtocol",

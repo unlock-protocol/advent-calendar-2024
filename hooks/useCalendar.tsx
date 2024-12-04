@@ -18,8 +18,6 @@ export const useCalendar = () => {
     scopeKey: 'start',
   });
 
-  console.log({start, rest})
-
   const { data: lockAddresses, isLoading: isLoadingLocks } = useReadContracts({
     // @ts-expect-error
     contracts: days
@@ -44,7 +42,6 @@ export const useCalendar = () => {
     cacheTime: 3_600_000,
   });
 
-  console.log(lockAddresses)
 
   // Now load all the locks that are available!
   const {

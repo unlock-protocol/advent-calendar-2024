@@ -6,8 +6,10 @@ import BaseDay from './BaseDay';
 import FutureDay from './FutureDay';
 import {
   useBalance,
+  useChainId,
   useReadContract,
   useSimulateContract,
+  useSwitchChain,
   useWriteContract,
 } from 'wagmi';
 import contracts from '../lib/contracts';
@@ -38,7 +40,9 @@ const explorer = (network: number, hash: string) => {
 };
 
 const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
+  const [resumeCheckout, setResumeCheckout] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
   const { wallets } = useWallets();
   const { wallet, canClaim } = useAuth();
   const recaptchaRef = useRef<any>();
@@ -59,13 +63,6 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
     address: wallet as `0x${string}`,
   });
 
-  // Switch network if required
-  // useEffect(() => {
-  //   if (wallet && wallet.chainId !== `eip155:${network}}`) {
-  //     wallet.switchChain(network);
-  //   }
-  // }, [wallet, network]);
-
   const referrer = referrerAddress as `0x${string}` || '0x0000000000000000000000000000000000000000';
   const { data } = useSimulateContract({
     address: lock as `0x${string}`,
@@ -83,17 +80,35 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
     gas: BigInt(700_000), // This is high, just in case they win!
   });
 
-  const { writeContract, data: hash } = useWriteContract();
+
+  const { writeContractAsync, data: hash } = useWriteContract();
+
+  const { switchChain } = useSwitchChain()
+  const chainId = useChainId()
+
+  useEffect(() => {
+    if(resumeCheckout) {
+      setResumeCheckout(false)
+      checkout()
+    }
+  },[chainId, resumeCheckout])
+
 
   const checkout = async () => {
     try {
-      if (userBalance && userBalance?.value > 0.0000001) {
+      if (userBalance && userBalance?.value > 0) {
         setLoading(true);
-        try {
-          await writeContract!(data!.request);
-          const explorerLink = explorer(network, hash!);
-          toast.success(
-            <p>
+        if (chainId !== network) {
+          setResumeCheckout(true);
+          await switchChain({
+            chainId: network,
+          });
+        } else {
+          try {
+            const hash = await writeContractAsync!(data!.request);
+            const explorerLink = explorer(network, hash!)
+            toast.success(
+              <p>
               Your{' '}
               <Link
                 className='inline underline'
@@ -102,17 +117,18 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
               >
                 NFT is being minted
               </Link>
-              ! Please stand by!
-            </p>,
-            { duration: 10000 }
-          );
-
-          onMinting(hash!);
-        } catch (e) {
-          console.error(e);
-          toast.error(
-            "It looks like the transaction to mint today's NFT could not be submitted! Please try again!"
-          );
+              ! Please stand by!              
+              </p>,
+              { duration: 10000 }
+            );
+  
+            onMinting(hash!);
+          } catch (e) {
+            console.error(e);
+            toast.error(
+              "It looks like the transaction to mint today's NFT could not be submitted! Please try again!"
+            );
+          }
         }
       } else {
         await recaptchaRef.current?.reset();
@@ -206,7 +222,7 @@ const Mintable = ({ lock, network, day, size, onMinting }: MintableProps) => {
     setLoading(false);
   };
 
-  if (loading || !writeContract) {
+  if (loading || !writeContractAsync) {
     return <LoadingDay day={day} size={size} />;
   }
 

@@ -19,6 +19,7 @@ export const Provider = ({ children }: { children?: ReactNode }) => {
       appId="clpjz90qo00k2if0fl2coy0ns"
       config={{
         embeddedWallets: {
+          createOnLogin: "users-without-wallets", // defaults to 'off'
           noPromptOnSignature: true, // defaults to false
         },
       }}

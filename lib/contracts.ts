@@ -101,9 +101,9 @@ const contracts = {
   },
 };
 
-if (AppConfig.environment !== "production") {
-  contracts.network = 84532;
-  contracts.hook.address = "0x909f61fd0BCb8C5e094478f79C212DB68CF1D7EA";
-}
+// if (AppConfig.environment !== "production") {
+//   contracts.network = 84532;
+//   contracts.hook.address = "0x909f61fd0BCb8C5e094478f79C212DB68CF1D7EA";
+// }
 
 export default contracts;
