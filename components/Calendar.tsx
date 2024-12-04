@@ -1,7 +1,6 @@
-import { useContractRead, useContractReads } from 'wagmi';
+'use client';
 import Day from './Day';
 import contracts from '../lib/contracts';
-import { useAuth } from '../hooks/useAuth';
 import { useCalendar } from '../hooks/useCalendar';
 import FutureDay from './FutureDay';
 import { daysSizes } from '../layout/daySizes';

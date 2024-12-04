@@ -1,9 +1,9 @@
-import FutureDay from './FutureDay';
-import LoadingDay from './LoadingDay';
-import NotConnectedDay from './NotConnectedDay';
-import UnlockableDay from './UnlockableDay';
-import { useAuth } from '../hooks/useAuth';
-import { DaySize } from '../layout/daySizes';
+import FutureDay from "./FutureDay";
+import LoadingDay from "./LoadingDay";
+import NotConnectedDay from "./NotConnectedDay";
+import UnlockableDay from "./UnlockableDay";
+import { useAuth } from "../hooks/useAuth";
+import { DaySize } from "../layout/daySizes";
 
 interface DayProps {
   day: number;
@@ -50,7 +50,7 @@ const Day = ({
   return (
     <UnlockableDay
       refetch={refetch}
-      user={wallet.address}
+      user={wallet}
       day={day}
       size={size}
       network={network}
