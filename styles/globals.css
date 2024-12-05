@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @layer base {
   body {
     @apply bg-black;
@@ -12,8 +12,12 @@
   text-decoration: underline;
 }
 
-@import '@radix-ui/colors/black-alpha.css';
-@import '@radix-ui/colors/violet.css';
+a {
+  @apply no-underline hover:underline decoration-primary decoration-4 transition-all;
+}
+
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/violet.css";
 
 /* reset */
 button {
@@ -34,16 +38,16 @@ button {
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-.TooltipContent[data-state='delayed-open'][data-side='top'] {
+.TooltipContent[data-state="delayed-open"][data-side="top"] {
   animation-name: slideDownAndFade;
 }
-.TooltipContent[data-state='delayed-open'][data-side='right'] {
+.TooltipContent[data-state="delayed-open"][data-side="right"] {
   animation-name: slideLeftAndFade;
 }
-.TooltipContent[data-state='delayed-open'][data-side='bottom'] {
+.TooltipContent[data-state="delayed-open"][data-side="bottom"] {
   animation-name: slideUpAndFade;
 }
-.TooltipContent[data-state='delayed-open'][data-side='left'] {
+.TooltipContent[data-state="delayed-open"][data-side="left"] {
   animation-name: slideRightAndFade;
 }
 
