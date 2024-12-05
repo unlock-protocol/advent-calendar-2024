@@ -9,6 +9,7 @@ import { AppConfig } from "../lib/AppConfig";
 import { GetTokens } from "../components/GetTokens";
 import { Hurricane } from "next/font/google";
 import Image from "next/image";
+import Footer from "../components/Footer";
 
 const hurricane = Hurricane({
   weight: "400",
@@ -82,16 +83,7 @@ export default function Home() {
               <GetTokens />
               <Calendar />
             </main>
-            <footer className='relative pt-16 text-white font-semibold w-full pb-16 flex justify-center'>
-              <Link target='_blank' href='https://unlock-protocol.com'>
-                <Image
-                  src='/images/unlock-dao.svg'
-                  alt='Unlock DAO'
-                  width='147'
-                  height='32'
-                />
-              </Link>
-            </footer>
+            <Footer />
           </div>
         </div>
       </div>
