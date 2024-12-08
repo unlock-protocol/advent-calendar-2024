@@ -47,6 +47,7 @@ export default function Home() {
         <meta property='eth:nft:mint_status' content='live' />
         <meta property='eth:nft:schema' content='erc721' />
         <meta property='eth:nft:chain' content='base' />
+        <FcFrame />
         <link rel='shortcut icon' href='/favicon.ico' type='image/png' />
       </Head>
       <div className="bg-[#141b26] bg-[url('/images/light-blur-background.svg')] bg-no-repeat bg-center bg-cover relative min-h-screen">
@@ -89,6 +90,27 @@ export default function Home() {
       </div>
 
       <Analytics />
+    </>
+  );
+}
+
+function FcFrame() {
+  return (
+    <>
+      <meta property="fc:frame"
+      content="vNext" /><meta property="fc:frame:image:aspect_ratio"
+      content="1.91:1" /><meta property="fc:frame:image"
+      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
+      property="og:image"
+      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
+      property="og:title" content="Unlock Protocol Advent Calendar" /><meta
+      property="fc:frame:post_url"
+      content="https://unlock-protocol-calendar.vercel.app/api?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+      property="fc:frame:button:1" content="Start" /><meta
+      property="fc:frame:button:1:action" content="post" /><meta
+      property="fc:frame:button:1:target"
+      content="https://unlock-protocol-calendar.vercel.app/api/calendar?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+      property="frog:version" content="0.18.2" />
     </>
   );
 }
