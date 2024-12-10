@@ -94,22 +94,44 @@ export default function Home() {
   );
 }
 
+// function FcFrame() {
+//   return (
+//     <>
+//       <meta property="fc:frame"
+//       content="vNext" /><meta property="fc:frame:image:aspect_ratio"
+//       content="1.91:1" /><meta property="fc:frame:image"
+//       content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
+//       property="og:image"
+//       content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
+//       property="og:title" content="Unlock Protocol Advent Calendar" /><meta
+//       property="fc:frame:post_url"
+//       content="https://unlock-protocol-calendar.vercel.app/api?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+//       property="fc:frame:button:1" content="Start" /><meta
+//       property="fc:frame:button:1:action" content="post" /><meta
+//       property="fc:frame:button:1:target"
+//       content="https://unlock-protocol-calendar.vercel.app/api/calendar?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+//       property="frog:version" content="0.18.2" />
+//     </>
+//   );
+// }
+
+
 function FcFrame() {
   return (
     <>
       <meta property="fc:frame"
       content="vNext" /><meta property="fc:frame:image:aspect_ratio"
       content="1.91:1" /><meta property="fc:frame:image"
-      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
-      property="og:image"
-      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
+      content={`${AppConfig.siteUrl}/api/start-image`} /><meta
+        property="og:image"
+        content={`${AppConfig.siteUrl}/api/start-image`} /><meta
       property="og:title" content="Unlock Protocol Advent Calendar" /><meta
-      property="fc:frame:post_url"
-      content="https://unlock-protocol-calendar.vercel.app/api?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+        property="fc:frame:post_url"
+        content={`${AppConfig.siteUrl}/api?initialPath=%252Fapi&amp;previousButtonValues=%2523A_`} /><meta
       property="fc:frame:button:1" content="Start" /><meta
       property="fc:frame:button:1:action" content="post" /><meta
-      property="fc:frame:button:1:target"
-      content="https://unlock-protocol-calendar.vercel.app/api/calendar?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
+        property="fc:frame:button:1:target"
+        content={`${AppConfig.siteUrl}/api/calendar?initialPath=%252Fapi&amp;previousButtonValues=%2523A_`} /><meta
       property="frog:version" content="0.18.2" />
     </>
   );
