@@ -49,6 +49,18 @@ app.hono.post("/send-notifications", async (c) => {
   }
   const body = await c.req.text();
   const currentDay = getCurrentDateUTC();
+  
+  const isValid = await qstashReceiver
+  .verify({
+    body,
+    signature,
+  })
+  .catch((e) => false);
+  
+  if (!isValid) {
+    return c.json({ error: "Invalid signature" }, 400);
+  }
+  
   const notificationMessage = `
   Day ${currentDay} NFT is now mintable!.
 
@@ -56,18 +68,6 @@ app.hono.post("/send-notifications", async (c) => {
   
   N/B: Unsubscribe from getting these notifications through the frame.
   `;
-
-  const isValid = await qstashReceiver
-    .verify({
-      body,
-      signature,
-    })
-    .catch((e) => false);
-
-  if (!isValid) {
-    return c.json({ error: "Invalid signature" }, 400);
-  }
-
   async function sendUserDCs() {
     // const userFids = [846887];
     const userFids = await kvStore.smembers(UNLOCK_REDIS_KEY);
