@@ -131,20 +131,3 @@ property="frog:version" content="0.18.2" />
     </>
   );
 }
-
-//Using App directory you don't need to manually create the meta tags
-/*
-./app/page.tsx
-import { getFrameMetadata } from 'frog/web'
-
-export async function generateMetadata(): Promise<Metadata> {
-  const frameTags = await getFrameMetadata(
-    `${process.env.VERCEL_URL || 'http://localhost:3000'}/frame`,
-  )
-  return {
-    other: frameTags,
-  }
-}
-
-*/
-
