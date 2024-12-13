@@ -2,13 +2,11 @@ import { Analytics } from "@vercel/analytics/react";
 import Snowfall from "react-snowfall";
 import Head from "next/head";
 import Header from "../components/Header";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Calendar } from "../components/Calendar";
 import { AppConfig } from "../lib/AppConfig";
 import { GetTokens } from "../components/GetTokens";
 import { Hurricane } from "next/font/google";
-import Image from "next/image";
 import Footer from "../components/Footer";
 
 const hurricane = Hurricane({
@@ -17,14 +15,54 @@ const hurricane = Hurricane({
   display: "swap",
 });
 export default function Home() {
-  const start = 1;
-  const days = new Array(24).fill(0).map((d, i) => i + start);
-  const searchParams = useSearchParams();
-
   return (
     <>
       <Head>
         <title>2024 Unlock Advent Calendar</title>
+       {/* ----- FRAME START ------ */}
+
+{/* Using App directory you don't need to manually create the meta tags
+./app/page.tsx
+
+import { getFrameMetadata } from 'frog/web'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const frameTags = await getFrameMetadata(
+    `${process.env.VERCEL_URL || 'http://localhost:3000'}/frame`,
+  )
+  return {
+    other: frameTags,
+  }
+} 
+  
+  */}
+
+  <meta property="fc:frame"
+  content="vNext" />
+<meta property="fc:frame:image:aspect_ratio"
+  content="1.91:1" />
+<meta property="fc:frame:image"
+  content={`${AppConfig.siteUrl}/frame/start-image`} />
+<meta
+property="og:image"
+  content={`${AppConfig.siteUrl}/frame/start-image`} />
+<meta 
+  property="og:title" content="Unlock Protocol Advent Calendar" />
+<meta
+property="fc:frame:post_url"
+  content={`${AppConfig.siteUrl}/frame?initialPath=%252Fframe&amp;previousButtonValues=%2523A_`} />
+<meta
+  property="fc:frame:button:1" content="Start" />
+<meta
+  property="fc:frame:button:1:action" content="post" />
+<meta
+property="fc:frame:button:1:target"
+  content={`${AppConfig.siteUrl}/frame/calendar?initialPath=%252Fframe&amp;previousButtonValues=%2523A_`} />
+<meta
+property="frog:version" content="0.18.2" />
+
+        {/* ----- FRAME END ------ */}
+        
         <meta property='og:title' content={AppConfig.name} key='title' />
         <meta
           property='og:description'
@@ -47,7 +85,7 @@ export default function Home() {
         <meta property='eth:nft:mint_status' content='live' />
         <meta property='eth:nft:schema' content='erc721' />
         <meta property='eth:nft:chain' content='base' />
-        <FcFrame />
+        
         <link rel='shortcut icon' href='/favicon.ico' type='image/png' />
       </Head>
       <div className="bg-[#141b26] bg-[url('/images/light-blur-background.svg')] bg-no-repeat bg-center bg-cover relative min-h-screen">
@@ -90,27 +128,6 @@ export default function Home() {
       </div>
 
       <Analytics />
-    </>
-  );
-}
-
-function FcFrame() {
-  return (
-    <>
-      <meta property="fc:frame"
-      content="vNext" /><meta property="fc:frame:image:aspect_ratio"
-      content="1.91:1" /><meta property="fc:frame:image"
-      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
-      property="og:image"
-      content="https://unlock-protocol-calendar.vercel.app/api/start-image" /><meta
-      property="og:title" content="Unlock Protocol Advent Calendar" /><meta
-      property="fc:frame:post_url"
-      content="https://unlock-protocol-calendar.vercel.app/api?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
-      property="fc:frame:button:1" content="Start" /><meta
-      property="fc:frame:button:1:action" content="post" /><meta
-      property="fc:frame:button:1:target"
-      content="https://unlock-protocol-calendar.vercel.app/api/calendar?initialPath=%252Fapi&amp;previousButtonValues=%2523A_" /><meta
-      property="frog:version" content="0.18.2" />
     </>
   );
 }
