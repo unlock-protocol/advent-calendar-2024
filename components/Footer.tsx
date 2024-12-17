@@ -15,7 +15,7 @@ const Footer = () => {
   const footerLinks: FooterLink[] = [
     {
       text: "Keychain",
-      url: "#",
+      url: "https://app.unlock-protocol.com/keychain",
     },
     {
       text: "ETH Bolivia",
