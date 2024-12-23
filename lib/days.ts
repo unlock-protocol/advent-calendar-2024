@@ -226,18 +226,22 @@ Represented by a **Nintendo Entertainment System, calisthenics rings**, and a **
   },
   {
     // Day 22
-    title: "",
-    role: "",
-    description: ``,
-    link: "",
+    title: "🙋‍♀️ Valentina",
+    role: "Unlock Labs Partnerships",
+    description: `Valentina is a key member of the Unlock Labs Team, spearheading partnerships with a passion for demystifying crypto applications for newcomers. Her essence can be captured through three objects: a Kindle, running shoes, and bread, symbolizing her love for knowledge, fitness, and nurturing connections. 
+    
+    Valentina's enthusiasm for the NFT space was ignited by her first significant acquisition, a World of Women NFT, which solidified her excitement to be part of this innovative community.`,
+    link: "https://twitter.com/Valen_HL",
     image: "/images/nft/22.png",
   },
   {
     // Day 23
-    title: "",
-    role: "",
-    description: ``,
-    link: "",
+    title: "🎤 Christopher Carfi aka Ccarfi",
+    role: "Professional Karaoke Singer & Unlock Labs Team",
+    description: `Christopher Carfi, aka Ccarfi, has been active in the crypto space since 2013 and champions onchain memberships and subscriptions as tools for creator independence within the Unlock Labs Team. He joined the Labs team in 2021 and witnessed the community flourish into thousands of passionate Locksmiths. 
+    
+    Describing himself through “Dust, Fire, and Karaoke,” Ccarfi embodies creativity, resilience, and connection in the blockchain world and beyond. Additionally, he always has the DAO's back and tremendously supports everyone in the community!`,
+    link: "https://warpcast.com/ccarfi",
     image: "/images/nft/23.png",
   },
   {

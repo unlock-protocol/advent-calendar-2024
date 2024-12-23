@@ -1,11 +1,34 @@
-import { usePrivy, useWallets } from "@privy-io/react-auth";
-import { useEffect, useMemo } from "react";
+import { usePrivy, useLogin } from "@privy-io/react-auth";
+import { useEffect, useMemo, useRef } from "react";
 import { useAccount } from "wagmi";
+import { toast } from "react-hot-toast";
 
 export function useAuth() {
-  const { linkEmail, user, login: privyLogin, logout } = usePrivy();
+  const { linkEmail, user, logout } = usePrivy();
   const { address: wallet } = useAccount();
+  const errorShown = useRef(false);
+  const isMounted = useRef(false);
+  const toastId = useRef<string | undefined>();
+  const { login: privyLogin } = useLogin({
+    onError: (error) => {
+      if (isMounted.current && !errorShown.current && !toastId.current) {
+        toastId.current = toast.error("Failed to connect wallet");
+        console.error("Privy login error:", error);
+        errorShown.current = true;
+      }
+    },
+  });
 
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+      errorShown.current = false;
+      if (toastId.current) {
+        toast.dismiss(toastId.current);
+      }
+    };
+  }, []);
   // useEffect(() => {
   //   if (user) {
   //     if (!user?.wallet?.address) {
