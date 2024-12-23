@@ -246,10 +246,10 @@ Represented by a **Nintendo Entertainment System, calisthenics rings**, and a **
   },
   {
     // Day 24
-    title: "",
-    role: "",
-    description: ``,
-    link: "",
+    title: "🆙 Thank you for being part of Unlock DAO",
+    role: "Happy Holidays Everyone",
+    description: `In 2024, Unlock Protocol DAO successfully migrated from Ethereum mainnet to Base, significantly enhancing governance efficiency and accessibility. This move introduced the new Unlock Protocol (UP) token, replacing UDT with a 1:1000 swap ratio. The migration reduced transaction costs and improved community participation in decision-making processes. The UP token, deployed on Base, now serves as the primary governance mechanism, fostering greater engagement among DAO members. As we reflect on this transformative year for Unlock Protocol, we wish everyone a Merry Christmas and Feliz Navidad!`,
+    link: "https://unlock-protocol.com/blog",
     image: "/images/nft/24.png",
   },
 ];
