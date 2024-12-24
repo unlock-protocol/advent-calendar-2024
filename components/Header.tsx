@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
-import { usePrivy } from "@privy-io/react-auth";
 import Image from "next/image";
 
 function truncate(text = "", startChars = 5, endChars = 3, maxLength = 11) {
@@ -18,13 +17,11 @@ function truncate(text = "", startChars = 5, endChars = 3, maxLength = 11) {
 
 const Header = () => {
   const { login, logout, wallet } = useAuth();
-  const { authenticated, linkWallet } = usePrivy();
-  const handleLogin = async () => {
-    if (authenticated === true) {
-      linkWallet();
-    } else {
-      toast("Loading Privy to log you in...");
-      await login();
+  const handleLogin = () => {
+    try {
+      login();
+    } catch (privyError) {
+      toast.error("Failed to connect wallet");
     }
   };
 
